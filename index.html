@@ -180,11 +180,11 @@ section{position:relative}
 @media(min-width:900px){.nav__links{display:flex}.nav__cta{display:inline-flex}}
 
 /* === SEÇÃO: HERO === */
-.hero{position:relative;display:grid;background:var(--salvia);color:#FFF8F0;overflow:hidden}
-.hero__texto{position:relative;z-index:1;display:flex;align-items:center;overflow:hidden;
+.hero{--fotoH:clamp(200px,34vh,360px);position:relative;display:grid;background:var(--salvia);color:#FFF8F0;overflow:hidden}
+.hero__texto{position:relative;z-index:3;display:flex;align-items:center;
   padding:clamp(96px,13vh,132px) 22px clamp(48px,7vh,72px)}
 .hero__txt{position:relative;z-index:1;width:100%}
-.hero__media{position:relative;width:100%;height:clamp(200px,34vh,360px);background:#3F4A38;order:-1}
+.hero__media{position:relative;z-index:1;width:100%;height:var(--fotoH);background:#3F4A38;order:-1}
 .hero__media picture{position:absolute;inset:0;display:block}
 .hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 /* véu discreto só para casar a foto com o verde do painel, sem apagar a roda */
@@ -199,13 +199,17 @@ section{position:relative}
 .hero__nota .pulso{width:8px;height:8px;border-radius:50%;background:#E9B47C;
   box-shadow:0 0 0 0 rgba(233,180,124,.7);animation:pulso 2.4s infinite}
 @keyframes pulso{70%{box-shadow:0 0 0 11px rgba(233,180,124,0)}100%{box-shadow:0 0 0 0 rgba(233,180,124,0)}}
-.hero__rings{width:min(120vw,760px);right:-38%;top:-22%;opacity:.16}
+/* Anéis do hero: traço ESCURO, não claro. Atravessam o painel verde e a foto como um
+   desenho só e, por escurecerem o fundo, sobem o contraste do texto em vez de derrubá-lo.
+   O centro fica na emenda entre a foto e o verde quando o layout está empilhado. */
+.hero__rings{z-index:2;stroke:#1E2618;opacity:.34;stroke-width:1.3;
+  width:min(150vw,900px);left:50%;top:var(--fotoH);transform:translate(-50%,-50%)}
 @media(min-width:1120px){
   .hero{grid-template-columns:1.02fr 1fr;min-height:100vh;min-height:100svh}
   .hero__texto{padding-block:clamp(110px,14vh,150px) clamp(60px,8vh,96px);
     padding-left:max(22px,calc((100vw - var(--maxw))/2));padding-right:clamp(36px,4.5vw,72px)}
   .hero__media{height:auto;order:0}
-  .hero__rings{right:-30%;top:-16%}
+  .hero__rings{width:min(96vw,1080px);left:52%;top:50%;opacity:.30}
 }
 
 /* === SEÇÃO: MANIFESTO === */
@@ -424,7 +428,6 @@ section{position:relative}
 <!-- === SEÇÃO: HERO === -->
 <section class="hero">
   <div class="hero__texto">
-    <svg class="rings rings--luz hero__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
     <div class="hero__txt">
       <p class="eyebrow">Última expedição do ano — 06, 07 e 08 de novembro · Paraty/RJ</p>
       <h1>Você não volta pra casa a mesma pessoa.</h1>
@@ -448,6 +451,8 @@ section{position:relative}
            width="1600" height="893" fetchpriority="high" decoding="async">
     </picture>
   </div>
+  <!-- grafismo dos anéis: atravessa o painel verde e a foto como um desenho só -->
+  <svg class="rings hero__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
 </section>
 
 <!-- === SEÇÃO: MANIFESTO === -->
