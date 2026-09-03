@@ -38,7 +38,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@60,0,9..144,500;60,0,9..144,600&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- === DADOS ESTRUTURADOS (Google: evento com data e local) === -->
-<!-- CONFIRMAR: quando houver valor e local exato, acrescentar "offers" e o endereço completo -->
+<!-- CONFIRMAR: quando houver valor e local exato, acrescentar "offers" e o endereço completo.
+     Só o Roberto Lopes anunciou publicamente esta edição (06-08/11); por isso é o único "performer" aqui. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,8 +75,6 @@
         }
       },
       "performer": [
-        { "@type": "Person", "name": "Gabi Duff", "sameAs": "https://instagram.com/gabiduff" },
-        { "@type": "Person", "name": "Nathan", "sameAs": "https://instagram.com/nathansurfcoach" },
         { "@type": "Person", "name": "Roberto Lopes", "sameAs": "https://instagram.com/beto.blopes" }
       ]
     }
@@ -111,7 +110,10 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 /* âncoras não podem parar embaixo da nav fixa */
 section[id],main[id]{scroll-margin-top:86px}
 :focus-visible{outline:2px solid var(--terracota);outline-offset:3px;border-radius:4px}
-.manifesto :focus-visible,.oferta :focus-visible,.final :focus-visible,.rodape :focus-visible{outline-color:#E9B47C}
+.manifesto :focus-visible,.oferta :focus-visible,.final :focus-visible,.rodape :focus-visible,
+.hero :focus-visible,.barra :focus-visible{outline-color:#E9B47C}
+/* anel duplo: o flutuante passa por cima de qualquer fundo */
+.fab:focus-visible{outline:2px solid #FFF8F0;outline-offset:2px;box-shadow:0 0 0 5px rgba(30,38,26,.65)}
 body{
   margin:0;background:var(--areia);color:var(--texto);
   font-family:'Karla',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -168,8 +170,9 @@ section{position:relative}
 .marca__ring svg{width:100%;height:100%;fill:none;stroke:var(--salvia-logo);stroke-width:9}
 .marca__txt{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;letter-spacing:.1em;line-height:1}
 .nav__links{display:none;gap:30px;align-items:center}
-.nav__links a{color:var(--salvia);text-decoration:none;font-size:.88rem;font-weight:600;opacity:.8;transition:opacity .2s}
-.nav__links a:hover{opacity:1}
+.nav__links a{color:var(--salvia);text-decoration:none;font-size:.88rem;font-weight:600;
+  text-decoration:none;transition:color .2s}
+.nav__links a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
 .nav .btn{padding:12px 22px;font-size:.78rem}
 .nav__cta{display:none}
 @media(min-width:900px){.nav__links{display:flex}.nav__cta{display:inline-flex}}
@@ -179,7 +182,11 @@ section{position:relative}
 .hero__media{position:absolute;inset:0;z-index:0}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .hero__media::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(178deg,rgba(46,110,106,.32) 0%,rgba(78,91,68,.30) 34%,rgba(43,52,38,.80) 78%,rgba(38,46,34,.93) 100%)}
+  background:linear-gradient(178deg,rgba(46,110,106,.34) 0%,rgba(60,72,54,.52) 26%,rgba(38,46,34,.86) 66%,rgba(30,38,26,.95) 100%)}
+/* scrim local: garante piso de contraste atras do bloco de texto em qualquer foto */
+.hero__in::before{content:'';position:absolute;inset:auto -50vw -14% -50vw;height:150%;pointer-events:none;
+  background:linear-gradient(to top,rgba(28,35,24,.80) 0%,rgba(28,35,24,.66) 34%,rgba(28,35,24,.32) 66%,transparent 100%)}
+.hero__col--1,.hero__col--2{position:relative;z-index:1}
 .hero__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(52px,8vh,96px);padding-top:clamp(90px,14vh,130px)}
 .hero .eyebrow{color:#EFE4C8}
 .hero h1{color:#FFF8F0;max-width:16ch;text-shadow:0 2px 30px rgba(30,36,26,.35)}
@@ -204,7 +211,8 @@ section{position:relative}
 .pilar h3{font-size:1.5rem;margin-bottom:8px}
 .pilar p{color:rgba(255,248,240,.78);margin:0;font-size:.98rem}
 .manifesto__intro{position:relative;z-index:1;display:grid;gap:16px}
-.manifesto__frase{font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2.15rem);line-height:1.3;color:#FFF8F0;max-width:20ch;margin:0}
+.manifesto__frase{font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2.15rem);font-weight:500;
+  line-height:1.3;color:#FFF8F0;max-width:20ch;margin:0;letter-spacing:0}
 .manifesto__sub{color:rgba(255,248,240,.78);margin:0;max-width:44ch}
 @media(min-width:860px){
   .manifesto__grid{grid-template-columns:repeat(3,1fr);gap:34px}
@@ -241,20 +249,20 @@ section{position:relative}
 .oferta h2,.oferta h3{color:#FFF8F0}
 .oferta__rings{width:min(104vw,760px);right:-22%;top:-22%}
 .oferta__box{position:relative;z-index:1;display:grid;gap:clamp(30px,4vw,52px);margin-top:clamp(34px,4vw,48px);
-  background:rgba(255,248,240,.07);border:1px solid rgba(255,248,240,.2);border-radius:20px;padding:clamp(26px,4vw,46px)}
+  background:rgba(28,35,24,.22);border:1px solid rgba(255,248,240,.22);border-radius:20px;padding:clamp(26px,4vw,46px)}
 @media(min-width:900px){.oferta__box{grid-template-columns:1fr 1.12fr;align-items:start}}
 .oferta__foto{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,248,240,.1)}
 .oferta__foto img{width:100%;height:100%;object-fit:cover}
-.oferta__selo{display:inline-flex;align-items:center;gap:8px;background:rgba(233,180,124,.16);
-  border:1px solid rgba(240,207,164,.5);color:var(--creme-2);border-radius:999px;padding:7px 15px;
+.oferta__selo{display:inline-flex;align-items:center;gap:8px;background:rgba(28,35,24,.42);
+  border:1px solid rgba(240,207,164,.6);color:#FFF0DC;border-radius:999px;padding:7px 15px;
   font-size:.71rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:18px}
 .oferta__data{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3.6vw,2.35rem);color:#FFF8F0;line-height:1.16;margin:0 0 6px}
 .oferta__local{color:rgba(255,248,240,.78);font-size:.95rem;margin:0 0 26px}
 .oferta__lista{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:11px}
 .oferta__lista li{display:flex;gap:12px;align-items:flex-start;color:rgba(255,248,240,.9);font-size:.96rem}
 .oferta__lista svg{flex-shrink:0;margin-top:5px;width:15px;height:15px;fill:none;stroke:var(--creme-2);stroke-width:2.2}
-.oferta__nota{background:rgba(255,248,240,.07);border-left:3px solid var(--creme-2);border-radius:0 8px 8px 0;
-  padding:14px 18px;margin:0 0 26px;font-size:.87rem;color:rgba(255,248,240,.78)}
+.oferta__nota{background:rgba(28,35,24,.34);border-left:3px solid var(--creme-2);border-radius:0 8px 8px 0;
+  padding:14px 18px;margin:26px 0 0;font-size:.87rem;color:rgba(255,248,240,.86)}
 .oferta__nota strong{color:var(--creme-2);font-weight:700;letter-spacing:.04em}
 .oferta .btn--cta{width:100%}
 @media(min-width:560px){.oferta .btn--cta{width:auto}}
@@ -326,7 +334,7 @@ section{position:relative}
 @media(min-width:760px){.rodape__top{grid-template-columns:1.4fr 1fr 1fr}}
 .rodape .marca{color:#FFF8F0;margin-bottom:14px}
 .rodape .marca__ring svg{stroke:rgba(255,248,240,.75)}
-.rodape h4{font-family:'Karla',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+.rodape h3{font-family:'Karla',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:rgba(255,248,240,.66);margin:0 0 14px}
 .rodape ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 .rodape a{color:rgba(255,248,240,.8);text-decoration:none}
@@ -438,7 +446,7 @@ section{position:relative}
   <svg class="rings rings--luz manifesto__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
   <div class="wrap" style="position:relative;z-index:1">
     <div class="manifesto__intro">
-      <p class="manifesto__frase rv">Natureza. Movimento. Consciência.</p>
+      <h2 class="manifesto__frase rv">Natureza. Movimento. Consciência.</h2>
       <p class="manifesto__sub rv">Para quem decide viver com verdade. A rotina de uma expedição NOVA ERA é simples — e é exatamente por isso que ela mexe com tudo.</p>
     </div>
     <div class="manifesto__grid">
@@ -501,7 +509,7 @@ section{position:relative}
         <div class="exp__txt">
           <span class="exp__tag">Yôga</span>
           <h3>Começar o dia pelo corpo, não pelo celular.</h3>
-          <p>Prática ao amanhecer com a Gabi Duff. Respiração, silêncio e aquele espaço entre um pensamento e outro que você já esqueceu que existia.</p>
+          <p>Prática ao amanhecer: respiração, silêncio e aquele espaço entre um pensamento e outro que você já esqueceu que existia.<!-- CONFIRMAR: quem conduz a prática nesta edição (Gabi, Roberto ou os dois) --></p>
         </div>
       </article>
 
@@ -557,7 +565,7 @@ section{position:relative}
       <div>
         <span class="oferta__selo">Última expedição do ano</span>
         <p class="oferta__data">06, 07 e 08 de novembro</p>
-        <p class="oferta__local">Paraty, litoral sul do Rio de Janeiro<!-- CONFIRMAR: vila/endereço exato da edição (o feed cita Trindade, Praia do Sono e o Cepilhão) --></p>
+        <p class="oferta__local">Paraty, litoral sul do Rio de Janeiro<!-- CONFIRMAR: vila/endereço exato da edição (o feed marca "Praia do Sono, Paraty" e cita o Cepilhão) --></p>
 
         <!-- Lista fiel ao que o próprio perfil publicou sobre a edição (post de @beto.blopes, 23/ago) -->
         <ul class="oferta__lista">
@@ -572,7 +580,10 @@ section{position:relative}
         <a class="btn btn--cta btn--g" href="https://wa.me/55XXXXXXXXXXX?text=Quero%20minha%20vaga%20na%20CALMA%20%2B%20FLOW%20de%2006%20a%2008%20de%20novembro" target="_blank" rel="noopener">QUERO MINHA VAGA</a>
         <p class="oferta__depois">Você fala direto com a organização e tira todas as dúvidas antes de decidir.</p>
 
-        <p class="oferta__nota"><strong>Recado para a NOVA ERA, não para o visitante:</strong> a lista acima é só o que o perfil já publicou. Antes de divulgar, confirmem hospedagem e refeições inclusas, valor, lote, política de cancelamento e se o surf entra nesta edição. Depois é só apagar este bloco.</p>
+        <!-- SUBSTITUIR: preencher os dois colchetes abaixo com os dados reais e apagar este comentário.
+             CONFIRMAR ANTES DE PUBLICAR: hospedagem e refeições inclusas, valor, lote, política de
+             cancelamento e se o surf entra nesta edição (a fonte só liga o surf às Surf Trips). -->
+        <p class="oferta__nota"><strong>Inclui:</strong> [SUBSTITUIR: hospedagem, refeições e práticas] · <strong>Investimento:</strong> [SUBSTITUIR: valor e lote] · <strong>Cancelamento:</strong> [SUBSTITUIR: política]</p>
       </div>
     </div>
   </div>
@@ -608,8 +619,8 @@ section{position:relative}
         </div>
         <div class="prox__txt">
           <p class="prox__quando">Próximas datas</p>
-          <h3>A agenda seguinte já está sendo desenhada</h3>
-          <p>Novas expedições, encontros em São Paulo e no Rio e práticas para quem quer começar sem sair de casa.<!-- SUBSTITUIR: datas reais da próxima agenda — o destaque "AGENDA" do perfil exige login e não pôde ser lido --></p>
+          <h3>Outras formas de participar</h3>
+          <p>Além das expedições, a NOVA ERA faz encontros em São Paulo e no Rio e tem práticas para quem quer começar sem sair de casa.<!-- SUBSTITUIR: datas da próxima agenda — o destaque "AGENDA" do perfil exige login e não pôde ser lido --></p>
           <!-- SUBSTITUIR: WhatsApp real da NOVA ERA -->
           <a class="funil" href="https://wa.me/55XXXXXXXXXXX?text=Quero%20entrar%20na%20lista%20das%20pr%C3%B3ximas%20expedi%C3%A7%C3%B5es%20da%20NOVA%20ERA" target="_blank" rel="noopener">Entrar na lista
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
@@ -631,6 +642,7 @@ section{position:relative}
       <article class="guia rv">
         <!-- SUBSTITUIR: foto da Gabi, 400x400px -->
         <div class="guia__av" aria-hidden="true">GD</div>
+        <!-- CONFIRMAR: no Instagram ela aparece como "Gabriela Mendes" (@gabiduff) — perguntar como quer ser creditada -->
         <h3 class="guia__nome">Gabi Duff</h3>
         <p class="guia__papel">Autoconhecimento · Yôga · Propósito</p>
         <p class="guia__bio">Dez anos de estudo de filosofia e prática, usando o próprio corpo e a própria história como laboratório.<!-- CONFIRMAR: quais práticas ela conduz especificamente nesta edição --></p>
@@ -648,9 +660,9 @@ section{position:relative}
         <p class="guia__bio">Aulas de surf em Paraty, em português, inglês e espanhol. É com ele que muita gente pega a primeira onda da vida no Cepilhão.<!-- CONFIRMAR: sobrenome e mini-bio validada --></p>
         <!-- Esta frase é legenda do perfil da NOVA ERA sobre a surf trip, NÃO é fala do Nathan — atribuição explícita.
              SUBSTITUIR (ideal): uma frase do próprio Nathan. -->
-        <blockquote class="guia__fala">“Surf raiz com alegria, parceria, coragem e muita, mais muita onda pra todo mundo.”
-          <cite class="guia__fonte">NOVA ERA, sobre a última surf trip com ele</cite>
-        </blockquote>
+        <p class="guia__fala">Nas palavras da própria NOVA ERA sobre a última surf trip com ele: surf raiz com alegria, parceria, coragem e muita, mais muita onda pra todo mundo.
+          <span class="guia__fonte">Legenda de @novaera.wellness — não é fala do Nathan</span>
+        </p>
         <a class="guia__ig" href="https://instagram.com/nathansurfcoach" target="_blank" rel="noopener">@nathansurfcoach</a>
       </article>
 
@@ -747,7 +759,7 @@ section{position:relative}
         <p class="creditos">Fotos: acervo @novaera.wellness, @gere.soares_photographer, @_paulaikeda_ e @beto.blopes.<!-- CONFIRMAR: autorização de uso das fotos e dos depoimentos --></p>
       </div>
       <div>
-        <h4>Navegar</h4>
+        <h3>Navegar</h3>
         <ul>
           <li><a href="#experiencia">A experiência</a></li>
           <li><a href="#reservar">CALMA + FLOW</a></li>
@@ -756,7 +768,7 @@ section{position:relative}
         </ul>
       </div>
       <div>
-        <h4>Falar com a gente</h4>
+        <h3>Falar com a gente</h3>
         <ul>
           <li><a href="https://instagram.com/novaera.wellness" target="_blank" rel="noopener">@novaera.wellness</a></li>
           <!-- SUBSTITUIR: WhatsApp real da NOVA ERA -->
