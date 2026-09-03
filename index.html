@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>NOVA ERA | Expedições Wellness em Paraty — Surf, Yôga e Natureza</title>
-<meta name="description" content="Expedições de fim de semana em Paraty/RJ: surf no Cepilhão, Yôga ao amanhecer, alimentação consciente e comunidade. CALMA + FLOW, última expedição do ano: 06, 07 e 08 de novembro.">
+<meta name="description" content="Expedições de fim de semana em Paraty/RJ: Yôga ao amanhecer, alimentação consciente, fogueira e rodas de conversa. CALMA + FLOW, última expedição do ano: 06, 07 e 08 de novembro.">
 <link rel="canonical" href="https://nova-era-wellness.vercel.app/">
 <meta name="theme-color" content="#4E5B44">
 
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://nova-era-wellness.vercel.app/">
 <meta property="og:title" content="NOVA ERA — Você não volta pra casa a mesma pessoa">
-<meta property="og:description" content="CALMA + FLOW, a última expedição do ano: 06, 07 e 08 de novembro em Paraty/RJ. Surf, Yôga, alimentação consciente e comunidade. Vagas limitadas.">
+<meta property="og:description" content="CALMA + FLOW: 06, 07 e 08 de novembro em Paraty/RJ. Yôga ao amanhecer, alimentação consciente, fogueira e rodas de conversa. Vagas limitadas.">
 <meta property="og:image" content="https://nova-era-wellness.vercel.app/og-image.jpg">
 <meta property="og:image:secure_url" content="https://nova-era-wellness.vercel.app/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -32,10 +32,10 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="preload" as="image" href="img/costa.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-1080.jpg" imagesrcset="img/hero-1080.jpg 1080w, img/hero-1600.jpg 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@60,0,9..144,500;60,0,9..144,600&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- === DADOS ESTRUTURADOS (Google: evento com data e local) === -->
 <!-- CONFIRMAR: quando houver valor e local exato, acrescentar "offers" e o endereço completo -->
@@ -55,7 +55,7 @@
     {
       "@type": "Event",
       "name": "CALMA + FLOW — última expedição do ano",
-      "description": "Três dias de expedição wellness em Paraty: surf no Cepilhão, Yôga ao amanhecer, alimentação consciente, fogueira e rodas de conversa.",
+      "description": "Três dias de expedição wellness em Paraty: acordar com calma, movimentar o corpo, respirar, comer de forma consciente, fogueira e rodas de conversa.",
       "startDate": "2026-11-06",
       "endDate": "2026-11-08",
       "eventStatus": "https://schema.org/EventScheduled",
@@ -122,6 +122,7 @@ img{max-width:100%;display:block}
 a{color:var(--mar);text-underline-offset:3px}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;color:var(--salvia);margin:0;
   font-variation-settings:'SOFT' 60,'WONK' 0}
+img[width][height]{height:auto}
 h1{font-size:clamp(2.3rem,6.4vw,4.05rem);letter-spacing:-.015em}
 h2{font-size:clamp(1.85rem,4.3vw,2.9rem);letter-spacing:-.01em}
 h3{font-size:clamp(1.12rem,2.1vw,1.35rem);font-weight:500}
@@ -131,7 +132,6 @@ section{position:relative}
 .sec{padding:clamp(64px,10vw,124px) 0}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mar);margin:0 0 18px}
 .lead{font-size:clamp(1.03rem,1.9vw,1.2rem);color:var(--mute);max-width:60ch}
-.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* === GRAFISMO: ANÉIS DE TRONCO (logo da marca) === */
 .rings{position:absolute;pointer-events:none;z-index:0;fill:none;stroke:var(--salvia);stroke-width:1.1;opacity:.10}
@@ -141,11 +141,9 @@ section{position:relative}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
   font-family:'Karla',sans-serif;font-weight:700;letter-spacing:.03em;font-size:.9rem;
   padding:16px 28px;border-radius:999px;border:1.5px solid transparent;text-decoration:none;
-  min-height:48px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .1s ease}
+  min-height:48px;cursor:pointer;text-align:center;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .1s ease}
 .btn--cta{background:var(--terracota);color:var(--texto-cta)}
 .btn--cta:hover{background:var(--terracota-esc)}
-.btn--ghost{background:transparent;color:var(--salvia);border-color:var(--linha)}
-.btn--ghost:hover{border-color:var(--salvia);background:rgba(78,91,68,.06)}
 .btn--luz{background:transparent;color:#FFF8F0;border-color:rgba(255,248,240,.42)}
 .btn--luz:hover{background:rgba(255,248,240,.12);border-color:#FFF8F0}
 .btn:active{transform:scale(.97);transition-duration:.1s}
@@ -177,7 +175,7 @@ section{position:relative}
 @media(min-width:900px){.nav__links{display:flex}.nav__cta{display:inline-flex}}
 
 /* === SEÇÃO: HERO === */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding-top:70px;overflow:hidden}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding-top:70px;overflow:hidden}
 .hero__media{position:absolute;inset:0;z-index:0}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .hero__media::after{content:'';position:absolute;inset:0;
@@ -282,35 +280,37 @@ section{position:relative}
 .guia__av{width:88px;height:88px;border-radius:50%;background:var(--salvia);color:#FFF8F0;
   display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.5rem;
   letter-spacing:.04em;margin-bottom:20px;overflow:hidden;flex-shrink:0}
-.guia__av img{width:100%;height:100%;object-fit:cover}
 .guia__nome{font-family:'Fraunces',serif;font-size:1.32rem;font-weight:600;color:var(--salvia);margin:0 0 3px}
 .guia__papel{font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--mar);margin:0 0 15px}
 .guia__bio{color:var(--mute);font-size:.95rem;margin:0 0 14px}
 .guia__fala{border-left:2px solid var(--linha);padding-left:15px;margin:0;color:var(--salvia);
   font-family:'Fraunces',serif;font-size:1rem;line-height:1.5}
+.guia__fonte{display:block;margin-top:9px;font-family:'Karla',sans-serif;font-style:normal;
+  font-size:.75rem;font-weight:600;letter-spacing:.02em;color:var(--mute)}
 .guia__ig{margin-top:15px;font-size:.82rem;font-weight:600;color:var(--mar);text-decoration:none;
   display:inline-flex;align-items:center;gap:6px}
 .guia__ig:hover{text-decoration:underline}
 
 /* === SEÇÃO: DEPOIMENTOS === */
-.dep__grid{display:grid;gap:20px;margin-top:clamp(36px,4vw,52px)}
-@media(min-width:860px){.dep__grid{grid-template-columns:repeat(3,1fr);gap:24px}}
-.dep{background:var(--card);border:1px solid var(--linha);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
-.dep__aspas{width:26px;height:26px;fill:none;stroke:var(--salvia-clara);stroke-width:1.5;margin-bottom:16px}
-.dep p{font-family:'Fraunces',serif;font-size:1.06rem;line-height:1.5;color:var(--salvia);flex:1;margin:0 0 20px}
+.dep__par{display:grid;gap:24px;margin-top:clamp(36px,4vw,52px);align-items:stretch}
+@media(min-width:900px){.dep__par{grid-template-columns:1fr 1.05fr;gap:28px}}
+.dep{background:var(--card);border:1px solid var(--linha);border-radius:var(--r);
+  padding:clamp(28px,3.4vw,40px);margin:0;display:flex;flex-direction:column;justify-content:center}
+.dep__aspas{width:30px;height:30px;fill:none;stroke:var(--salvia-clara);stroke-width:1.5;margin-bottom:18px}
+.dep p{font-family:'Fraunces',serif;font-size:clamp(1.1rem,1.9vw,1.28rem);line-height:1.45;color:var(--salvia);margin:0 0 24px}
 .dep__quem{display:flex;align-items:center;gap:12px}
 .dep__foto{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;
   background:var(--salvia);color:#FFF8F0;display:flex;align-items:center;justify-content:center;
   font-family:'Fraunces',serif;font-size:.92rem;letter-spacing:.03em}
-.dep__foto img{width:100%;height:100%;object-fit:cover}
 .dep__nome{font-weight:700;font-size:.9rem;color:var(--texto);line-height:1.3}
 .dep__meta{font-size:.78rem;color:var(--mute)}
-.dep--vazio{border-style:dashed;border-color:rgba(78,91,68,.32);background:transparent;
-  align-items:center;justify-content:center;text-align:center;min-height:200px}
-.dep--vazio p{font-family:'Karla',sans-serif;font-size:.9rem;color:var(--mute);flex:0}
-.dep__foto-grupo{border-radius:var(--r);overflow:hidden;position:relative;margin:clamp(34px,4vw,48px) 0 0}
-.dep__foto-grupo img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 40%}
-.dep__legenda{font-size:.8rem;color:var(--mute);margin:12px 0 0;text-align:center}
+.dep--vazio{border:1px dashed rgba(78,91,68,.34);border-radius:var(--r);background:transparent;
+  padding:20px 24px;margin-top:22px;font-size:.88rem;color:var(--mute)}
+.dep--vazio strong{color:var(--salvia)}
+.dep__foto-grupo{border-radius:var(--r);overflow:hidden;position:relative;margin:0;display:flex;flex-direction:column}
+.dep__foto-grupo img{width:100%;height:auto;flex:1;min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center 38%}
+.dep__legenda{font-size:.78rem;color:var(--mute);margin:10px 2px 0}
+@media(min-width:900px){.dep__foto-grupo img{aspect-ratio:auto;height:100%}}
 
 /* === SEÇÃO: CTA FINAL === */
 .final{background:var(--salvia);color:#FFF8F0;text-align:center;overflow:hidden}
@@ -362,6 +362,7 @@ section{position:relative}
   *{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -409,8 +410,11 @@ section{position:relative}
 <!-- === SEÇÃO: HERO === -->
 <section class="hero">
   <div class="hero__media">
-    <!-- Foto real do feed @novaera.wellness — vista aérea da costa de Paraty -->
-    <img src="img/costa.jpg" alt="Vista aérea da praia, do costão e da mata Atlântica em Paraty, litoral sul do Rio de Janeiro." width="360" height="640" fetchpriority="high">
+    <!-- Foto real do feed @novaera.wellness — vista aérea da costa de Paraty.
+         SUBSTITUIR: o melhor original disponível é 360x640 (Instagram); pedir o arquivo em alta ao cliente. -->
+    <img src="img/hero-1080.jpg" srcset="img/hero-1080.jpg 1080w, img/hero-1600.jpg 1600w" sizes="100vw"
+         alt="Vista aérea da praia, do costão e da Mata Atlântica em Paraty, litoral sul do Rio de Janeiro."
+         width="1080" height="1920" fetchpriority="high" decoding="async">
   </div>
   <svg class="rings rings--luz hero__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
   <div class="wrap hero__in">
@@ -419,7 +423,7 @@ section{position:relative}
       <h1>Você não volta pra casa a mesma pessoa.</h1>
     </div>
     <div class="hero__col--2">
-      <p class="hero__sub">Três dias entre o mar e a mata: surf no Cepilhão, Yôga ao amanhecer, comida que nutre e uma roda de gente de verdade.</p>
+      <p class="hero__sub">Três dias entre o mar e a mata: Yôga ao amanhecer, comida que nutre, fogueira e uma roda de gente de verdade.</p>
       <div class="hero__acoes">
         <a class="btn btn--cta btn--g" href="#reservar">QUERO MINHA VAGA</a>
         <a class="btn btn--luz btn--g" href="#experiencia">Conhecer a experiência</a>
@@ -473,8 +477,8 @@ section{position:relative}
 <section class="sec" id="experiencia">
   <div class="wrap">
     <p class="eyebrow rv">A experiência</p>
-    <h2 class="rv">Três dias que cabem numa vida inteira.</h2>
-    <p class="lead rv" style="margin-top:18px">Acordar com presença. Movimentar o corpo. Equalizar a mente. Nada aqui é complicado — e é justamente aí que está a força.</p>
+    <h2 class="rv">O que cabe em três dias.</h2>
+    <p class="lead rv" style="margin-top:18px">Mar de manhã, corpo em movimento, comida de verdade e gente por perto. Uma rotina curta, repetida por três dias.</p>
 
     <div class="exp__grid">
       <article class="exp__card rv">
@@ -485,7 +489,7 @@ section{position:relative}
         <div class="exp__txt">
           <span class="exp__tag">Surf</span>
           <h3>Sua primeira onda, com quem sabe ensinar.</h3>
-          <p>No Cepilhão, o pico mais massa de Paraty, com o Nathan do lado. Não importa se você nunca subiu numa prancha: dá tempo de entender o mar.</p>
+          <p>No Cepilhão, o pico mais massa de Paraty, com o Nathan do lado. Não importa se você nunca subiu numa prancha: dá tempo de entender o mar.<!-- CONFIRMAR: o surf aparece nas Surf Trips do perfil; confirmar se entra também na CALMA + FLOW --></p>
         </div>
       </article>
 
@@ -523,7 +527,7 @@ section{position:relative}
         <div class="exp__txt">
           <span class="exp__tag">Comunidade</span>
           <h3>A roda que continua depois que acaba.</h3>
-          <p>Fogueira, rodas de conversa, altinha na praia. Energia também é troca — e é o que você leva embora quando a van vira a esquina.</p>
+          <p>Fogueira, rodas de conversa, altinha na praia. Energia também é troca — e é isso que continua com você depois que a expedição acaba.</p>
         </div>
       </article>
     </div>
@@ -543,7 +547,7 @@ section{position:relative}
   <div class="wrap" style="position:relative;z-index:1">
     <p class="eyebrow rv" style="color:var(--creme-2)">A próxima</p>
     <h2 class="rv">CALMA + FLOW</h2>
-    <p class="lead rv" style="color:rgba(255,248,240,.78);margin-top:18px">A última chamada do ano. As inscrições estão abertas e a roda é pequena de propósito.</p>
+    <p class="lead rv" style="color:rgba(255,248,240,.78);margin-top:18px">As inscrições estão abertas e as vagas são limitadas.</p>
 
     <div class="oferta__box rv">
       <div class="oferta__foto">
@@ -555,19 +559,20 @@ section{position:relative}
         <p class="oferta__data">06, 07 e 08 de novembro</p>
         <p class="oferta__local">Paraty, litoral sul do Rio de Janeiro<!-- CONFIRMAR: vila/endereço exato da edição (o feed cita Trindade, Praia do Sono e o Cepilhão) --></p>
 
+        <!-- Lista fiel ao que o próprio perfil publicou sobre a edição (post de @beto.blopes, 23/ago) -->
         <ul class="oferta__lista">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Acordar com calma e prática ao amanhecer</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Surf com coach no Cepilhão, do zero em diante</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Yôga, respiração e meditação todos os dias</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Alimentação consciente</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Fogueira, rodas de conversa e altinha</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Acordar com calma</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Movimentar o corpo e respirar</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Comer de forma consciente</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Fogueira e rodas de conversa</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg> Altinha na praia</li>
         </ul>
-
-        <p class="oferta__nota"><strong>CONFIRMAR ANTES DE PUBLICAR:</strong> hospedagem e refeições inclusas, valor, lote e política de cancelamento. A lista acima veio das publicações do próprio perfil — falta o pacote comercial fechado.</p>
 
         <!-- SUBSTITUIR: trocar o link abaixo pelo WhatsApp real da NOVA ERA em TODOS os CTAs da página -->
         <a class="btn btn--cta btn--g" href="https://wa.me/55XXXXXXXXXXX?text=Quero%20minha%20vaga%20na%20CALMA%20%2B%20FLOW%20de%2006%20a%2008%20de%20novembro" target="_blank" rel="noopener">QUERO MINHA VAGA</a>
         <p class="oferta__depois">Você fala direto com a organização e tira todas as dúvidas antes de decidir.</p>
+
+        <p class="oferta__nota"><strong>Recado para a NOVA ERA, não para o visitante:</strong> a lista acima é só o que o perfil já publicou. Antes de divulgar, confirmem hospedagem e refeições inclusas, valor, lote, política de cancelamento e se o surf entra nesta edição. Depois é só apagar este bloco.</p>
       </div>
     </div>
   </div>
@@ -589,7 +594,8 @@ section{position:relative}
           <p class="prox__quando">Outubro · últimas vagas</p>
           <h3>SHANTI Surf Trip</h3>
           <p>Surf raiz com o Nathan no Cepilhão: onda pra todo mundo, parceria e alto astral. A família SHANTI só cresce a cada edição.<!-- CONFIRMAR: dias exatos de outubro e valor --></p>
-          <a class="funil" href="#reservar">Quero saber mais
+          <!-- SUBSTITUIR: WhatsApp real da NOVA ERA -->
+          <a class="funil" href="https://wa.me/55XXXXXXXXXXX?text=Quero%20saber%20da%20SHANTI%20Surf%20Trip%20de%20outubro" target="_blank" rel="noopener">Falar sobre a Surf Trip
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -601,10 +607,11 @@ section{position:relative}
           <img src="img/praia-alto.jpg" alt="Enseada de areia clara cercada por morros de mata Atlântica, vista de um mirante em Paraty." loading="lazy" width="360" height="640" style="object-position:center 5%">
         </div>
         <div class="prox__txt">
-          <p class="prox__quando">Agenda 2026</p>
-          <h3>O ano que vem já está sendo desenhado</h3>
-          <p>Novas expedições, encontros em São Paulo e no Rio e práticas para quem quer começar sem sair de casa.<!-- SUBSTITUIR: datas reais da agenda 2026 (estão no destaque "AGENDA" do Instagram, que exige login) --></p>
-          <a class="funil" href="#reservar">Entrar na lista
+          <p class="prox__quando">Próximas datas</p>
+          <h3>A agenda seguinte já está sendo desenhada</h3>
+          <p>Novas expedições, encontros em São Paulo e no Rio e práticas para quem quer começar sem sair de casa.<!-- SUBSTITUIR: datas reais da próxima agenda — o destaque "AGENDA" do perfil exige login e não pôde ser lido --></p>
+          <!-- SUBSTITUIR: WhatsApp real da NOVA ERA -->
+          <a class="funil" href="https://wa.me/55XXXXXXXXXXX?text=Quero%20entrar%20na%20lista%20das%20pr%C3%B3ximas%20expedi%C3%A7%C3%B5es%20da%20NOVA%20ERA" target="_blank" rel="noopener">Entrar na lista
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -625,9 +632,11 @@ section{position:relative}
         <!-- SUBSTITUIR: foto da Gabi, 400x400px -->
         <div class="guia__av" aria-hidden="true">GD</div>
         <h3 class="guia__nome">Gabi Duff</h3>
-        <p class="guia__papel">Yôga e autoconhecimento</p>
-        <p class="guia__bio">Dez anos de estudo de filosofia e prática, usando o próprio corpo e a própria história como laboratório.</p>
-        <blockquote class="guia__fala">“Guiar as pessoas no caminho da pele para dentro será sempre uma das formas mais naturais do meu propósito se manifestar.”</blockquote>
+        <p class="guia__papel">Autoconhecimento · Yôga · Propósito</p>
+        <p class="guia__bio">Dez anos de estudo de filosofia e prática, usando o próprio corpo e a própria história como laboratório.<!-- CONFIRMAR: quais práticas ela conduz especificamente nesta edição --></p>
+        <blockquote class="guia__fala">“Guiar as pessoas no caminho da pele para dentro será sempre uma das formas mais naturais do meu propósito se manifestar.”
+          <cite class="guia__fonte">Palavras dela, no Instagram</cite>
+        </blockquote>
         <a class="guia__ig" href="https://instagram.com/gabiduff" target="_blank" rel="noopener">@gabiduff</a>
       </article>
 
@@ -637,7 +646,11 @@ section{position:relative}
         <h3 class="guia__nome">Nathan</h3>
         <p class="guia__papel">Surf coach</p>
         <p class="guia__bio">Aulas de surf em Paraty, em português, inglês e espanhol. É com ele que muita gente pega a primeira onda da vida no Cepilhão.<!-- CONFIRMAR: sobrenome e mini-bio validada --></p>
-        <blockquote class="guia__fala">“Surf raiz com alegria, parceria, coragem e muita, mais muita onda pra todo mundo.”</blockquote>
+        <!-- Esta frase é legenda do perfil da NOVA ERA sobre a surf trip, NÃO é fala do Nathan — atribuição explícita.
+             SUBSTITUIR (ideal): uma frase do próprio Nathan. -->
+        <blockquote class="guia__fala">“Surf raiz com alegria, parceria, coragem e muita, mais muita onda pra todo mundo.”
+          <cite class="guia__fonte">NOVA ERA, sobre a última surf trip com ele</cite>
+        </blockquote>
         <a class="guia__ig" href="https://instagram.com/nathansurfcoach" target="_blank" rel="noopener">@nathansurfcoach</a>
       </article>
 
@@ -647,7 +660,9 @@ section{position:relative}
         <h3 class="guia__nome">Roberto Lopes</h3>
         <p class="guia__papel">Yoga e autoconhecimento</p>
         <p class="guia__bio">Conduz as vivências como um convite à escuta: acordar com calma, respirar, comer com consciência, sentar na roda.<!-- CONFIRMAR: papel exato dele na CALMA + FLOW e mini-bio validada --></p>
-        <blockquote class="guia__fala">“A vivência é tanto pra fora quanto pra dentro. Voltar de uma experiência dessa é voltar com a mente no lugar.”</blockquote>
+        <blockquote class="guia__fala">“A vivência é tanto pra fora, quanto pra dentro. E voltar de uma experiência dessa, é voltar com hábitos legais, novas relações, a mente no lugar e o coração transbordando.”
+          <cite class="guia__fonte">Palavras dele, no Instagram</cite>
+        </blockquote>
         <a class="guia__ig" href="https://instagram.com/beto.blopes" target="_blank" rel="noopener">@beto.blopes</a>
       </article>
     </div>
@@ -667,43 +682,29 @@ section{position:relative}
     <p class="eyebrow rv">Quem foi, sentiu</p>
     <h2 class="rv">Quem viveu conta melhor do que a gente.</h2>
 
-    <div class="dep__grid">
-      <article class="dep rv">
-        <svg class="dep__aspas" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 22H5V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8ZM27 22h-8V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8Z"/></svg>
-        <p>Aquela experiência que com certeza não deixa a gente voltar pra casa a mesma pessoa!</p>
-        <div class="dep__quem">
-          <!-- SUBSTITUIR (opcional): trocar o monograma pela foto da Jessica, se ela autorizar, 400x400px -->
-          <div class="dep__foto" aria-hidden="true">JP</div>
-          <div>
-            <div class="dep__nome">Jessica Pedroso</div>
-            <div class="dep__meta">Participante · @jessy_pedroso</div>
-          </div>
+    <div class="dep__par">
+    <!-- Um único depoimento porque é o único público e verificável. Não inventamos os outros. -->
+    <blockquote class="dep rv">
+      <svg class="dep__aspas" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 22H5V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8ZM27 22h-8V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8Z"/></svg>
+      <p>Aquela experiência que com certeza não deixa a gente voltar pra casa a mesma pessoa! Obrigada Nathan por ser meu mestre conselheiro me ajudando a pegar minha primeira onda na praia do Cepilhão, inesquecível.</p>
+      <div class="dep__quem">
+        <!-- SUBSTITUIR (opcional): trocar o monograma pela foto da Jessica, se ela autorizar, 400x400px -->
+        <div class="dep__foto" aria-hidden="true">JP</div>
+        <div>
+          <div class="dep__nome">Jessica Pedroso</div>
+          <div class="dep__meta">Participante · publicado no @jessy_pedroso<!-- CONFIRMAR: autorização dela para usar a fala no site --></div>
         </div>
-      </article>
-
-      <article class="dep rv">
-        <svg class="dep__aspas" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 22H5V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8ZM27 22h-8V14c0-5 3-8 8-9v4c-3 1-4 3-4 5h4v8Z"/></svg>
-        <p>Obrigada Nathan por ser meu mestre conselheiro, me ajudando a pegar minha primeira onda na praia do Cepilhão. Inesquecível.</p>
-        <div class="dep__quem">
-          <div class="dep__foto" aria-hidden="true">JP</div>
-          <div>
-            <div class="dep__nome">Jessica Pedroso</div>
-            <div class="dep__meta">Primeira onda no Cepilhão</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- SUBSTITUIR: colar aqui um depoimento REAL de participante (print de DM, comentário ou story).
-           Este card fica propositalmente vazio — não inventamos depoimento. -->
-      <article class="dep dep--vazio rv">
-        <p><strong>Espaço reservado para mais um depoimento real.</strong><br>Peça autorização a quem já foi e cole aqui — vale um print de DM ou de comentário.</p>
-      </article>
-    </div>
+      </div>
+    </blockquote>
 
     <figure class="dep__foto-grupo rv">
-      <img src="img/beto-retiro.jpg" alt="Turma completa da última edição reunida no jardim ao fim da expedição." loading="lazy" width="532" height="640">
+      <img src="img/beto-retiro.jpg" alt="Participantes de uma edição da expedição reunidos no jardim para a foto de grupo." loading="lazy" width="532" height="640">
+      <figcaption class="dep__legenda">Foto de grupo de uma edição recente, publicada por @beto.blopes.<!-- CONFIRMAR: qual edição é esta e autorização de uso --></figcaption>
     </figure>
-    <p class="dep__legenda rv">A turma da última edição, na despedida.</p>
+    </div>
+
+    <!-- SUBSTITUIR: colar aqui outros depoimentos REAIS (print de DM, comentário ou story). -->
+    <p class="dep--vazio rv"><strong>Espaço reservado para mais depoimentos reais.</strong> Peça autorização a quem já foi e cole aqui — vale um print de DM ou de comentário. Nenhum depoimento fictício foi colocado nesta página.</p>
 
     <div class="funil-wrap rv">
       <a class="funil" href="#reservar">
@@ -779,7 +780,7 @@ section{position:relative}
 
 <!-- === BARRA FIXA (mobile) === -->
 <div class="barra">
-  <span class="barra__data">06—08 nov · Paraty</span>
+  <span class="barra__data">06–08 nov · Paraty</span>
   <a class="btn btn--cta" href="#reservar">QUERO MINHA VAGA</a>
 </div>
 
