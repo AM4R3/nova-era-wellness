@@ -33,8 +33,8 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <link rel="preload" as="image" href="img/hero-roda-1600.jpg"
-      imagesrcset="img/hero-roda-1100.jpg 1100w, img/hero-roda-1600.jpg 1600w, img/hero-roda-2000.jpg 2000w"
-      imagesizes="(min-width:1120px) 50vw, 100vw" fetchpriority="high">
+      imagesrcset="img/hero-roda-p760.jpg 760w, img/hero-roda-1100.jpg 1100w, img/hero-roda-1600.jpg 1600w, img/hero-roda-2000.jpg 2000w"
+      imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@60,0,9..144,500;60,0,9..144,600&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
@@ -126,7 +126,7 @@ img{max-width:100%;display:block}
 a{color:var(--mar);text-underline-offset:3px}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;color:var(--salvia);margin:0;
   font-variation-settings:'SOFT' 60,'WONK' 0}
-img:where([width][height]){height:auto}   /* :where() zera a especificidade: regras de classe continuam podendo mandar */
+img[width][height]{height:auto}
 h1{font-size:clamp(2.3rem,6.4vw,4.05rem);letter-spacing:-.015em}
 h2{font-size:clamp(1.85rem,4.3vw,2.9rem);letter-spacing:-.01em}
 h3{font-size:clamp(1.12rem,2.1vw,1.35rem);font-weight:500}
@@ -180,32 +180,34 @@ section{position:relative}
 @media(min-width:900px){.nav__links{display:flex}.nav__cta{display:inline-flex}}
 
 /* === SEÇÃO: HERO === */
-.hero{position:relative;display:grid;background:var(--salvia);color:#FFF8F0;overflow:hidden}
-.hero__texto{position:relative;z-index:1;display:flex;align-items:center;overflow:hidden;
-  padding:clamp(96px,13vh,132px) 22px clamp(48px,7vh,72px)}
-.hero__txt{position:relative;z-index:1;width:100%}
-.hero__media{position:relative;width:100%;height:clamp(200px,34vh,360px);background:#3F4A38;order:-1}
-.hero__media picture{position:absolute;inset:0;display:block}
-.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
-/* véu discreto só para casar a foto com o verde do painel, sem apagar a roda */
-.hero__media::after{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(46,110,106,.14) 0%,rgba(78,91,68,.06) 42%,rgba(43,52,38,.16) 100%)}
-.hero .eyebrow{color:var(--creme-2)}
-.hero h1{color:#FFF8F0;max-width:15ch}
-.hero__sub{color:rgba(255,248,240,.82);font-size:clamp(1.04rem,1.9vw,1.22rem);max-width:42ch;margin:20px 0 0}
-.hero__acoes{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
-.hero__nota{display:flex;align-items:center;gap:9px;margin:24px 0 0;color:rgba(255,248,240,.82);
-  font-size:.85rem;font-weight:600;letter-spacing:.02em}
-.hero__nota .pulso{width:8px;height:8px;border-radius:50%;background:#E9B47C;
-  box-shadow:0 0 0 0 rgba(233,180,124,.7);animation:pulso 2.4s infinite}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding-top:70px;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media picture,.hero__media img{display:block;width:100%;height:100%}
+.hero__media img{object-fit:cover;object-position:50% 58%}
+.hero__media::after{content:'';position:absolute;inset:0;z-index:2;
+  background:linear-gradient(178deg,rgba(46,110,106,.34) 0%,rgba(60,72,54,.52) 26%,rgba(38,46,34,.86) 66%,rgba(30,38,26,.95) 100%)}
+/* scrim local: garante piso de contraste atras do bloco de texto em qualquer foto */
+.hero__in::before{content:'';position:absolute;inset:auto -50vw -14% -50vw;height:150%;pointer-events:none;
+  background:linear-gradient(to top,rgba(28,35,24,.78) 0%,rgba(28,35,24,.62) 34%,rgba(28,35,24,.34) 64%,transparent 100%)}
+/* no mobile o texto sobe para a faixa clara da copa: escurece so o topo, deixando a roda visivel no meio */
+@media(max-width:720px){
+  .hero__media::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(28,35,24,.62) 0%,rgba(28,35,24,.46) 26%,rgba(28,35,24,.12) 46%,transparent 58%)}
+}
+.hero__col--1,.hero__col--2{position:relative;z-index:1}
+.hero__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(52px,8vh,96px);padding-top:clamp(90px,14vh,130px)}
+.hero .eyebrow{color:#EFE4C8}
+.hero h1{color:#FFF8F0;max-width:16ch;text-shadow:0 2px 30px rgba(30,36,26,.35)}
+.hero__sub{color:rgba(255,248,240,.9);font-size:clamp(1.04rem,2.1vw,1.28rem);max-width:44ch;margin:22px 0 0}
+.hero__acoes{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
+.hero__nota{display:flex;align-items:center;gap:9px;margin-top:26px;color:rgba(255,248,240,.78);font-size:.85rem;font-weight:600;letter-spacing:.02em}
+.hero__nota .pulso{width:8px;height:8px;border-radius:50%;background:#E9B47C;box-shadow:0 0 0 0 rgba(233,180,124,.7);animation:pulso 2.4s infinite}
 @keyframes pulso{70%{box-shadow:0 0 0 11px rgba(233,180,124,0)}100%{box-shadow:0 0 0 0 rgba(233,180,124,0)}}
-.hero__rings{width:min(120vw,760px);right:-38%;top:-22%;opacity:.16}
-@media(min-width:1120px){
-  .hero{grid-template-columns:1.02fr 1fr;min-height:100vh;min-height:100svh}
-  .hero__texto{padding-block:clamp(110px,14vh,150px) clamp(60px,8vh,96px);
-    padding-left:max(22px,calc((100vw - var(--maxw))/2));padding-right:clamp(36px,4.5vw,72px)}
-  .hero__media{height:auto;order:0}
-  .hero__rings{right:-30%;top:-16%}
+.hero__rings{width:min(112vw,780px);right:-24%;top:-14%;opacity:.13}
+@media(min-width:1024px){
+  .hero{align-items:center}
+  .hero__in{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:60px;padding-block:clamp(110px,12vh,150px) clamp(70px,9vh,110px)}
+  .hero__col--2{align-self:end;padding-bottom:6px}
 }
 
 /* === SEÇÃO: MANIFESTO === */
@@ -423,11 +425,25 @@ section{position:relative}
 
 <!-- === SEÇÃO: HERO === -->
 <section class="hero">
-  <div class="hero__texto">
-    <svg class="rings rings--luz hero__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
-    <div class="hero__txt">
+  <div class="hero__media">
+    <!-- Foto enviada pelo cliente: roda de prática no jardim, no fim da tarde.
+         CONFIRMAR: se a foto é de uma edição da NOVA ERA e se há autorização de uso das pessoas em cena. -->
+    <picture>
+      <source media="(max-width:720px)" srcset="img/hero-roda-p760.jpg" width="760" height="852">
+      <img src="img/hero-roda-1600.jpg"
+           srcset="img/hero-roda-1100.jpg 1100w, img/hero-roda-1600.jpg 1600w, img/hero-roda-2000.jpg 2000w"
+           sizes="100vw"
+           alt="Roda de prática ao ar livre num jardim de mata: o grupo sentado em círculo sobre esteiras, de frente para quem conduz, com a luz do fim da tarde atravessando as árvores."
+           width="1600" height="893" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <svg class="rings rings--luz hero__rings" viewBox="0 0 400 400" aria-hidden="true"><use href="#aneis"/></svg>
+  <div class="wrap hero__in">
+    <div class="hero__col--1">
       <p class="eyebrow">Última expedição do ano — 06, 07 e 08 de novembro · Paraty/RJ</p>
       <h1>Você não volta pra casa a mesma pessoa.</h1>
+    </div>
+    <div class="hero__col--2">
       <p class="hero__sub">Três dias entre o mar e a mata: Yôga ao amanhecer, comida que nutre, fogueira e uma roda de gente de verdade.</p>
       <div class="hero__acoes">
         <a class="btn btn--cta btn--g" href="#reservar">QUERO MINHA VAGA</a>
@@ -435,18 +451,6 @@ section{position:relative}
       </div>
       <p class="hero__nota"><span class="pulso" aria-hidden="true"></span> Inscrições abertas · vagas limitadas</p>
     </div>
-  </div>
-  <div class="hero__media">
-    <!-- Foto enviada pelo cliente: roda de prática no jardim, no fim da tarde.
-         CONFIRMAR: se a foto é de uma edição da NOVA ERA e se há autorização de uso das pessoas em cena. -->
-    <picture>
-      <source media="(max-width:1119px)" srcset="img/hero-roda-1100.jpg 1100w, img/hero-roda-1600.jpg 1600w" sizes="100vw">
-      <img src="img/hero-roda-1600.jpg"
-           srcset="img/hero-roda-1100.jpg 1100w, img/hero-roda-1600.jpg 1600w, img/hero-roda-2000.jpg 2000w"
-           sizes="(min-width:1120px) 50vw, 100vw"
-           alt="Roda de prática ao ar livre num jardim de mata: o grupo sentado em círculo sobre esteiras, de frente para quem conduz, com a luz do fim da tarde atravessando as árvores."
-           width="1600" height="893" fetchpriority="high" decoding="async">
-    </picture>
   </div>
 </section>
 
@@ -827,6 +831,16 @@ onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
 /* === ANO NO RODAPÉ === */
 document.getElementById('ano').textContent=new Date().getFullYear();
+</script>
+<script>
+window.addEventListener('load',function(){
+ var out=[];[['eyebrow','.hero .eyebrow'],['h1','.hero h1'],['sub','.hero__sub'],['nota','.hero__nota']].forEach(function(pr){
+ var el=document.querySelector(pr[1]);if(!el)return;var r=el.getBoundingClientRect();
+ out.push(pr[0]+':'+Math.round(r.left)+','+Math.round(r.top)+','+Math.round(r.right)+','+Math.round(r.bottom));});
+ document.title='RECTS '+out.join('|');
+ if(new URLSearchParams(location.search).get('bg')){
+  document.querySelectorAll('.hero__in, .hero__in *').forEach(function(e){e.style.color='transparent';e.style.borderColor='transparent';e.style.background='transparent';e.style.boxShadow='none'});
+  document.querySelectorAll('.hero__in svg').forEach(function(e){e.style.visibility='hidden'});}});
 </script>
 </body>
 </html>
