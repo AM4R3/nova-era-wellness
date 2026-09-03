@@ -1,0 +1,13 @@
+{
+  "name": "NOVA ERA | Experiências Transformadoras",
+  "short_name": "NOVA ERA",
+  "description": "Expedições wellness em Paraty/RJ: surf, Yôga, alimentação consciente e comunidade.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F1E6",
+  "theme_color": "#4E5B44",
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
